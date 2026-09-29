@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://c7spworschy2u"]
+
+[ext_resource type="Script" uid="uid://b42uroibjsftg" path="res://settings_dialog.gd" id="1_setsc"]
+
+[node name="SettingsDialog" type="Window" unique_id=1181815939]
+oversampling_override = 1.0
+title = "UI_SETTINGS_TITLE"
+position = Vector2i(0, 36)
+size = Vector2i(760, 600)
+wrap_controls = true
+transient = true
+exclusive = true
+script = ExtResource("1_setsc")
+
+[node name="Background" type="PanelContainer" parent="." unique_id=1843432133]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="Background" unique_id=1038790829]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 14
+
+[node name="VBox" type="VBoxContainer" parent="Background/Margin" unique_id=1863149472]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LanguageRow" type="HBoxContainer" parent="Background/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LanguageLabel" type="Label" parent="Background/Margin/VBox/LanguageRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.7, 0.3, 1)
+text = "UI_SETTINGS_LANGUAGE"
+
+[node name="LanguageSelect" type="OptionButton" parent="Background/Margin/VBox/LanguageRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="HSeparatorLang" type="HSeparator" parent="Background/Margin/VBox"]
+layout_mode = 2
+
+[node name="KeysHeader" type="Label" parent="Background/Margin/VBox" unique_id=221897668]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "UI_SETTINGS_KEYS_HEADER"
+
+[node name="KeysGrid" type="GridContainer" parent="Background/Margin/VBox" unique_id=38968879]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 6
+columns = 2
+
+[node name="GeminiLabel" type="Label" parent="Background/Margin/VBox/KeysGrid" unique_id=815690420]
+layout_mode = 2
+text = "Google Gemini Key:"
+
+[node name="GeminiKeyEdit" type="LineEdit" parent="Background/Margin/VBox/KeysGrid" unique_id=1201638736]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "AIzaSy..."
+secret = true
+
+[node name="OpenRouterLabel" type="Label" parent="Background/Margin/VBox/KeysGrid" unique_id=1784693101]
+layout_mode = 2
+text = "OpenRouter Key:"
+
+[node name="OpenRouterKeyEdit" type="LineEdit" parent="Background/Margin/VBox/KeysGrid" unique_id=1359065657]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "sk-or-v1-..."
+secret = true
+
+[node name="DeepSeekLabel" type="Label" parent="Background/Margin/VBox/KeysGrid" unique_id=532296611]
+layout_mode = 2
+text = "DeepSeek Key:"
+
+[node name="DeepSeekKeyEdit" type="LineEdit" parent="Background/Margin/VBox/KeysGrid" unique_id=199209167]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "sk-..."
+secret = true
+
+[node name="OpenAiLabel" type="Label" parent="Background/Margin/VBox/KeysGrid" unique_id=1306007734]
+layout_mode = 2
+text = "OpenAI Key:"
+
+[node name="OpenAiKeyEdit" type="LineEdit" parent="Background/Margin/VBox/KeysGrid" unique_id=1698266961]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "sk-..."
+secret = true
+
+[node name="HSeparator" type="HSeparator" parent="Background/Margin/VBox" unique_id=3170138]
+layout_mode = 2
+
+[node name="ModelsHeader" type="Label" parent="Background/Margin/VBox" unique_id=542046862]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "UI_SETTINGS_MODELS_HEADER"
+[node name="ModelsTree" type="Tree" parent="Background/Margin/VBox" unique_id=1479737664]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+[node name="RemoveModelRow" type="HBoxContainer" parent="Background/Margin/VBox" unique_id=214133612]
+layout_mode = 2
+[node name="Spacer" type="Control" parent="Background/Margin/VBox/RemoveModelRow" unique_id=1830131173]
+layout_mode = 2
+size_flags_horizontal = 3
+[node name="RemoveModelBtn" type="Button" parent="Background/Margin/VBox/RemoveModelRow" unique_id=102220246]
+unique_name_in_owner = true
+layout_mode = 2
+text = "UI_SETTINGS_REMOVE_SELECTED"
+[node name="NewModelBox" type="VBoxContainer" parent="Background/Margin/VBox" unique_id=1502735157]
+layout_mode = 2
+theme_override_constants/separation = 4
+[node name="AddTitle" type="Label" parent="Background/Margin/VBox/NewModelBox" unique_id=2067688477]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.75, 0.85, 1)
+theme_override_font_sizes/font_size = 12
+text = "UI_SETTINGS_ADD_TITLE"
+[node name="AddRow1" type="HBoxContainer" parent="Background/Margin/VBox/NewModelBox" unique_id=94214948]
+layout_mode = 2
+[node name="NewModelId" type="LineEdit" parent="Background/Margin/VBox/NewModelBox/AddRow1" unique_id=1274922590]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "UI_SETTINGS_MODEL_ID_PH"
+[node name="NewModelName" type="LineEdit" parent="Background/Margin/VBox/NewModelBox/AddRow1" unique_id=856322006]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "UI_SETTINGS_MODEL_NAME_PH"
+[node name="AddRow2" type="HBoxContainer" parent="Background/Margin/VBox/NewModelBox" unique_id=960451647]
+layout_mode = 2
+[node name="NewModelProvider" type="OptionButton" parent="Background/Margin/VBox/NewModelBox/AddRow2" unique_id=2086811172]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.35
+[node name="NewModelUrl" type="LineEdit" parent="Background/Margin/VBox/NewModelBox/AddRow2" unique_id=778949967]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "UI_SETTINGS_MODEL_URL_PH"
+[node name="NewModelKeyName" type="OptionButton" parent="Background/Margin/VBox/NewModelBox/AddRow2" unique_id=1806881143]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+[node name="AddModelBtn" type="Button" parent="Background/Margin/VBox/NewModelBox/AddRow2" unique_id=1907433699]
+unique_name_in_owner = true
+layout_mode = 2
+text = "UI_SETTINGS_ADD_BTN"
+[node name="BottomRow" type="HBoxContainer" parent="Background/Margin/VBox" unique_id=1887056355]
+layout_mode = 2
+alignment = 2
+[node name="CancelBtn" type="Button" parent="Background/Margin/VBox/BottomRow" unique_id=540738722]
+unique_name_in_owner = true
+layout_mode = 2
+text = "UI_SETTINGS_CANCEL_BTN"
+[node name="SaveBtn" type="Button" parent="Background/Margin/VBox/BottomRow" unique_id=180476152]
+unique_name_in_owner = true
+modulate = Color(0.4, 1, 0.6, 1)
+layout_mode = 2
+text = "UI_SETTINGS_SAVE_BTN"

@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://bix675wquav3f"]
+
+[ext_resource type="Script" uid="uid://cfes1wfm8pmwk" path="res://event_log.gd" id="1_n16q7"]
+[ext_resource type="Script" uid="uid://bqwcb6sl52b3r" path="res://file_tree.gd" id="2_bl318"]
+[ext_resource type="Script" uid="uid://cb3ixx0swchxm" path="res://chat_window.gd" id="3_3vgie"]
+
+[node name="EventLog" type="PanelContainer" unique_id=336367710]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_n16q7")
+metadata/_edit_use_anchors_ = true
+
+[node name="MainMargin" type="MarginContainer" parent="." unique_id=955012381]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MainMargin" unique_id=782881874]
+layout_mode = 2
+split_offset = 290
+
+[node name="Sidebar" type="VBoxContainer" parent="MainMargin/HSplitContainer" unique_id=320303657]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SearchFilter" type="LineEdit" parent="MainMargin/HSplitContainer/Sidebar" unique_id=54910283]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "UI_SEARCH_PLACEHOLDER"
+clear_button_enabled = true
+
+[node name="QuickActionsRow1" type="HBoxContainer" parent="MainMargin/HSplitContainer/Sidebar" unique_id=89230192]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="SelectCodeBtn" type="Button" parent="MainMargin/HSplitContainer/Sidebar/QuickActionsRow1" unique_id=12938491]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "UI_SOURCES_TOOLTIP"
+text = "UI_SOURCES"
+
+[node name="ClearFocusBtn" type="Button" parent="MainMargin/HSplitContainer/Sidebar/QuickActionsRow1" unique_id=12938492]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "UI_CLEAR_FOCUS_TOOLTIP"
+text = "UI_CLEAR_FOCUS"
+
+[node name="QuickActionsRow2" type="HBoxContainer" parent="MainMargin/HSplitContainer/Sidebar" unique_id=89230193]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ToggleCollapseBtn" type="Button" parent="MainMargin/HSplitContainer/Sidebar/QuickActionsRow2" unique_id=12938493]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "UI_FOLDERS_TOOLTIP"
+text = "UI_FOLDERS"
+
+[node name="SnapshotBtn" type="Button" parent="MainMargin/HSplitContainer/Sidebar/QuickActionsRow2" unique_id=12938494]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "UI_SNAPSHOT_TOOLTIP"
+text = "UI_SNAPSHOT"
+
+[node name="FileTree" type="Tree" parent="MainMargin/HSplitContainer/Sidebar" unique_id=67732808]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_bl318")
+
+[node name="FsOpsRow" type="HBoxContainer" parent="MainMargin/HSplitContainer/Sidebar" unique_id=651531141]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ExplorerButton" type="Button" parent="MainMargin/HSplitContainer/Sidebar/FsOpsRow" unique_id=1516654409]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "UI_FOLDER_EXPLORER_TOOLTIP"
+text = "UI_FOLDER_EXPLORER"
+
+[node name="TerminalButton" type="Button" parent="MainMargin/HSplitContainer/Sidebar/FsOpsRow" unique_id=1642065013]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "UI_TERMINAL_TOOLTIP"
+text = "UI_TERMINAL"
+
+[node name="RefreshButton" type="Button" parent="MainMargin/HSplitContainer/Sidebar/FsOpsRow" unique_id=1907294257]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "UI_REFRESH_TOOLTIP"
+text = "UI_REFRESH"
+
+[node name="EditorChoiceBar" type="HBoxContainer" parent="MainMargin/HSplitContainer/Sidebar" unique_id=74102941]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="EditorChoiceLabel" type="Label" parent="MainMargin/HSplitContainer/Sidebar/EditorChoiceBar" unique_id=74102942]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.68, 0.8, 1)
+theme_override_font_sizes/font_size = 12
+text = "UI_EDITOR_LABEL"
+
+[node name="EditorSelect" type="OptionButton" parent="MainMargin/HSplitContainer/Sidebar/EditorChoiceBar" unique_id=74102943]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ExternalToolsRow" type="HBoxContainer" parent="MainMargin/HSplitContainer/Sidebar" unique_id=1187872111]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="CompanionRun" type="Button" parent="MainMargin/HSplitContainer/Sidebar/ExternalToolsRow" unique_id=1187872110]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "UI_EXTERNAL_GEMINI"
+
+[node name="RLLrun" type="Button" parent="MainMargin/HSplitContainer/Sidebar/ExternalToolsRow" unique_id=1187872109]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "UI_EXTERNAL_RLL"
+
+[node name="chat_window" type="VBoxContainer" parent="MainMargin/HSplitContainer" unique_id=950209261]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+script = ExtResource("3_3vgie")
+
+[node name="HeaderLabel" type="Label" parent="MainMargin/HSplitContainer/chat_window" unique_id=1902786677]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.35, 0.42, 0.52, 0.8)
+text = "UI_HEADER_MOTTO"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainMargin/HSplitContainer/chat_window" unique_id=1559227539]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/HSplitContainer/chat_window/ScrollContainer" unique_id=628530788]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="InputBar" type="HBoxContainer" parent="MainMargin/HSplitContainer/chat_window" unique_id=958215766]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="OptionButton" type="OptionButton" parent="MainMargin/HSplitContainer/chat_window/InputBar" unique_id=470278932]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="SettingsButton" type="Button" parent="MainMargin/HSplitContainer/chat_window/InputBar" unique_id=470278999]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "UI_SETTINGS_TOOLTIP"
+text = "⚙️"
+
+[node name="TextEdit" type="TextEdit" parent="MainMargin/HSplitContainer/chat_window/InputBar" unique_id=98606676]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "UI_INPUT_PLACEHOLDER"
+wrap_mode = 1
+
+[node name="Button" type="Button" parent="MainMargin/HSplitContainer/chat_window/InputBar" unique_id=858985813]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+text = "UI_SEND_BUTTON"
+
+[node name="StatusBar" type="Label" parent="MainMargin/HSplitContainer/chat_window" unique_id=23940129]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.42, 0.52, 0.65, 1)
+theme_override_font_sizes/font_size = 12
+text = "UI_STATUS_READY"
+text_overrun_behavior = 3
+
+[node name="CollapseButton" type="CheckButton" parent="." unique_id=2023414293]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+

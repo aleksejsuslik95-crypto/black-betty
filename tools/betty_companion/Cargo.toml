@@ -1,0 +1,8 @@
+[package]
+name = "betty_companion"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+wry = "0.47"
+tao = "0.30"

@@ -1,0 +1,23 @@
+# Rust build artifacts
+**/target/
+Cargo.lock
+
+# Godot editor cache & temporary files
+.godot/
+*.tmp
+betty_frontend/*.exe
+
+# Betty local state, caches & secrets
+**/.env
+**/*.env
+**/.betty_memory.json
+**/.betty_cache.json
+**/.betty_history/
+
+# Local work projects
+projects/
+**/projects/
+
+# OS metadata
+Thumbs.db
+.DS_Store

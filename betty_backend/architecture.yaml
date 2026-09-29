@@ -1,0 +1,55 @@
+# ==============================================================================
+# UNIVERSAL SYSTEM ARCHITECTURE SCHEMA: ECOSYSTEM PATTERN 
+# PATTERN: Fat Diplomat (Bridge) + Autonomous Ecosystems + Dumb Tools + Observer
+# TARGET: Tech-Agnostic Architecture Template (Zero Domain Overhead)
+# ==============================================================================
+
+version: "1.0.0-Universal-Ecosystem"
+concurrency_model: "Async Channels (MPSC/Broadcast) + Independent Spawned Loops"
+
+core_philosophy:
+  - "The Bootstrapper: Entry point strictly assembles the world, spawns threads, and passes control."
+  - "The Diplomat (Bridge): A monolithic source of truth holding global types, states, and routing logic. Knows data, not implementation."
+  - "Autonomous Ecosystems: Self-contained domains for business logic. Built-in retry limits for local errors."
+  - "Dumb Tools: Pure stateless functions that only answer to Ecosystems. No cross-imports."
+  - "Standardized Telemetry: All domains pack logs into a strict Envelope sent to the Diplomat, routed to a dedicated Observer."
+
+file_tree_topology:
+  bootstrapper:
+    path: "src/main.rs"
+    role: "The World Builder"
+    contents:
+      - "Environment and config initialization"
+      - "Channel wiring and thread spawning"
+
+  diplomat_layer:
+    path: "src/bridge.rs"
+    role: "The Fat Diplomat (Global Contract & Router)"
+    contents:
+      - "Wire Protocol DTOs & Global State"
+      - "Command Enums (Internal, Outbound)"
+      - "Central Dispatcher Loop (Non-blocking routing)"
+
+  ecosystems_layer:
+    path: "src/ecosystems/"
+    role: "Autonomous Factories (Domain Business Logic)"
+    modules:
+      - "src/ecosystems/domain_a_ecosystem.rs -> Core business domain A"
+      - "src/ecosystems/domain_b_ecosystem.rs -> Core business domain B"
+      - "src/ecosystems/observer_ecosystem.rs -> Centralized telemetry and localization"
+    rules:
+      - "No direct imports between ecosystems. Route via Diplomat."
+      - "Must resolve internal errors locally or throw a formal contract error to the Diplomat."
+
+  tools_layer:
+    path: "src/tools/"
+    role: "The Dumb Utensils (Stateless Engines)"
+    rules:
+      - "Pure data in, pure data out. No bridge or ecosystem imports."
+
+data_flow_specification:
+  1_inbound: "Signal arrives at Diplomat"
+  2_routing: "Diplomat matches Enum, updates state, and forwards DTO to target Ecosystem via channel"
+  3_processing: "Ecosystem runs async loop, utilizing tools as needed"
+  4_telemetry: "Ecosystem packs status into Envelope, sends to Diplomat -> Observer"
+  5_outbound: "Ecosystem sends final Result to Diplomat for outbound dispatch"
